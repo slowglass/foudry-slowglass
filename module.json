@@ -1,11 +1,11 @@
 {
     "id":  "foundry-slowglass",
     "title":  "Slowglass Helper",
-    "version":  "0.0.2-SNAPSHOT",
+    "version":  "0.0.2",
     "description":  "General Module for players in Eccles Road Games",
     "url":  "https://github.com/slowglass/foundry-slowglass",
     "manifest":  "https://github.com/slowglass/foundry-slowglass/releases/latest/download/module.json",
-    "download":  "https://github.com/slowglass/foundry-slowglass/releases/download/v0.0.2-SNAPSHOT/module.zip",
+    "download":  "https://github.com/slowglass/foundry-slowglass/releases/download/v0.0.2/module.zip",
     "bugs":  "https://github.com/slowglass/foundry-slowglass/issues",
     "readme":  "https://github.com/slowglass/foundry-slowglass/main/README.md",
     "license":  "https://mit-license.org/",
