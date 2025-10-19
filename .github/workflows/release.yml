@@ -1,0 +1,44 @@
+name: Release Module
+
+on: 
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get module metadata
+        id: module_metadata
+        run: |
+          ID=$(jq -r '.id' module.json)
+          VERSION=$(jq -r '.version' module.json)
+          echo "module_id=$ID" >> $GITHUB_OUTPUT
+          echo "module_version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Create module zip
+        run: |
+          zip -r module.zip . \
+            -x ".git/*" \
+            -x "*.zip" \
+            -x "build.ps1" \
+            -x ".github/*"
+
+      - name: List files for debugging
+        run: ls -la
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            ./module.json
+            ./module.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
